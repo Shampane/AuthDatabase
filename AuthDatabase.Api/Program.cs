@@ -1,3 +1,5 @@
+using AuthDatabase.Api.DataAccess;
+
 namespace AuthDatabase.Api;
 
 public class Program
@@ -9,6 +11,7 @@ public class Program
         builder.Services.AddControllers();
         builder.Services.AddEndpointsApiExplorer();
         builder.Services.AddSwaggerGen();
+        builder.Services.AddScoped<AppDbContext>();
 
         var app = builder.Build();
 
