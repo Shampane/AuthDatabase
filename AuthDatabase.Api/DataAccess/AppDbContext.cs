@@ -1,9 +1,10 @@
 using AuthDatabase.Api.Models;
+using AuthDatabase.Authentication.DataAccess;
 using Microsoft.EntityFrameworkCore;
 
 namespace AuthDatabase.Api.DataAccess;
 
-public class AppDbContext : DbContext
+public class AppDbContext : AuthDbContext
 {
     public AppDbContext(IConfiguration configuration)
     {

@@ -1,4 +1,5 @@
 using AuthDatabase.Api.DataAccess;
+using AuthDatabase.Api.ProgramDependencies;
 
 namespace AuthDatabase.Api;
 
@@ -7,11 +8,7 @@ public class Program
     public static async Task Main(string[] args)
     {
         var builder = WebApplication.CreateBuilder(args);
-
-        builder.Services.AddControllers();
-        builder.Services.AddEndpointsApiExplorer();
-        builder.Services.AddSwaggerGen();
-        builder.Services.AddScoped<AppDbContext>();
+        builder.Services.AddServices();
 
         var app = builder.Build();
 
