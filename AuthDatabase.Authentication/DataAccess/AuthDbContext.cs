@@ -1,3 +1,4 @@
+using AuthDatabase.Authentication.Configuration;
 using AuthDatabase.Authentication.Models;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
@@ -9,5 +10,6 @@ public class AuthDbContext : IdentityDbContext<UserEntity>
     protected override void OnModelCreating(ModelBuilder builder)
     {
         base.OnModelCreating(builder);
+        builder.ApplyConfiguration(new RoleConfiguration());
     }
 }

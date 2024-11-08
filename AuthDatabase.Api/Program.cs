@@ -1,4 +1,3 @@
-using AuthDatabase.Api.DataAccess;
 using AuthDatabase.Api.ProgramDependencies;
 
 namespace AuthDatabase.Api;
@@ -11,15 +10,7 @@ public class Program
         builder.Services.AddServices();
 
         var app = builder.Build();
-
-        if (app.Environment.IsDevelopment())
-        {
-            app.UseSwagger();
-            app.UseSwaggerUI();
-        }
-
-        app.UseAuthorization();
-        app.MapControllers();
+        app.AddExtensions();
 
         await app.RunAsync();
     }
